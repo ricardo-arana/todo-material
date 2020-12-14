@@ -1,9 +1,9 @@
 <div class="lista">
-  <mat-selection-list #items>
-    <mat-list-option *ngFor="let items of lista">
-      {{ items }}
+  <mat-selection-list #items (selectionChange)="seleciona($event.option.value)">
+    <mat-list-option *ngFor="let tarea of tareas" [value]="tarea.id" [selected]="tarea.hecho">
+      {{ tarea.descripcion }}
     </mat-list-option>
   </mat-selection-list>
 
-  <p>Objetos seleccionados: {{ items.selectedOptions.selected.length }}</p>
+  <p>Tareas completadas: {{ items.selectedOptions.selected.length }}</p>
 </div>

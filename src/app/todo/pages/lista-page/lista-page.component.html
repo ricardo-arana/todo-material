@@ -1,7 +1,7 @@
 <div class="text-center">
-    <app-add></app-add>
+    <app-add (update)="obtenerTareas()"></app-add>
 </div>
 
 <div>
-    <app-lista></app-lista>
+    <app-lista [tareas]="tareas"></app-lista>
 </div>

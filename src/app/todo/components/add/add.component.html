@@ -1,4 +1,4 @@
 <mat-form-field appearance="fill">
     <mat-label>Tarea</mat-label>
-    <input matInput>
+    <input matInput (keyup.enter)="agregarTarea(descripcion.value)" #descripcion>
 </mat-form-field>

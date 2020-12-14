@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tarea } from 'src/app/shared/models/tarea.model';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-lista-page',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista-page.component.css']
 })
 export class ListaPageComponent implements OnInit {
-
-  constructor() { }
+  tareas: Tarea[] = [];
+  constructor(private todoService: TodoService) {
+    this.obtenerTareas();
+   }
 
   ngOnInit(): void {
+  }
+
+  obtenerTareas() {
+    this.tareas = this.todoService.obtenerTarea()
   }
 
 }

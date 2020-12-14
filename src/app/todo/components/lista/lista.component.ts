@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Tarea } from 'src/app/shared/models/tarea.model';
 
 @Component({
   selector: 'app-lista',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
-  lista = ['angular', 'react', 'vue']
+  @Input() tareas: Tarea[] = [];
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  seleciona(algo: any) {
+    console.log(algo)
+  }
 }
