@@ -1,0 +1,9 @@
+<div class="lista">
+  <mat-selection-list #items>
+    <mat-list-option *ngFor="let items of lista">
+      {{ items }}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <p>Objetos seleccionados: {{ items.selectedOptions.selected.length }}</p>
+</div>
