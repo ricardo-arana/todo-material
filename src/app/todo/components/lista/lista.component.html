@@ -1,13 +1,32 @@
 <div class="lista">
   <mat-selection-list #items>
-    <ng-container *ngFor="let tarea of tareas">
-      <mat-list-option  [value]="tarea.id" (click)="seleccionar(tarea)" [selected]="tarea.hecho">
-        {{ tarea.descripcion }} 
-      </mat-list-option>
-      <button mat-raised-button color="warn" (click)="eliminar(tarea.id)"> eliminar</button>
+    <ng-container *ngFor="let tarea of tareas" class="elemento">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <mat-list-option
+          [value]="tarea.id"
+          (click)="seleccionar(tarea)"
+          [selected]="tarea.hecho"
+          [disableRipple]="true"
+        >
+          {{ tarea.descripcion }}
+        </mat-list-option>
+        <div style="display: flex">
+          <button mat-icon-button color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="eliminar(tarea.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
     </ng-container>
-   
   </mat-selection-list>
 
-  <p>Tareas completadas: {{ tareasTerminadas}}</p>
+  <p>Tareas completadas: {{ tareasTerminadas }}</p>
 </div>

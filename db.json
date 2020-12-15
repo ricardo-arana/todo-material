@@ -11,24 +11,19 @@
       "hecho": true
     },
     {
-      "id": 8,
-      "descripcion": "tarea de ejemplo 4",
-      "hecho": false
-    },
-    {
       "id": 4438526782,
       "descripcion": "esta chevere",
-      "hecho": false
+      "hecho": true
     },
     {
       "id": 80945909,
       "descripcion": "Esta es otra tarea",
-      "hecho": false
+      "hecho": true
     },
     {
       "id": 8073642935,
       "descripcion": "aqui va otra mas",
-      "hecho": false
+      "hecho": true
     },
     {
       "id": 662479850,
