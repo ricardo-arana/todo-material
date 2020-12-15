@@ -1,10 +1,7 @@
 <div class="lista">
-  <div *ngIf="tareasTerminadas === 0">
-    No hay tareas
-  </div>
   <mat-selection-list #items>
     <mat-list-option *ngFor="let tarea of tareas" [value]="tarea.id" (click)="seleccionar(tarea)" [selected]="tarea.hecho">
-      {{ tarea.descripcion }}
+      {{ tarea.descripcion }} <small (click)="eliminar(tarea.id)"> eliminar</small>
     </mat-list-option>
   </mat-selection-list>
 

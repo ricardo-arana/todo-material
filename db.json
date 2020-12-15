@@ -6,11 +6,6 @@
       "hecho": false
     },
     {
-      "id": 3,
-      "descripcion": "tarea de ejemplo 2",
-      "hecho": false
-    },
-    {
       "id": 6,
       "descripcion": "tarea de ejemplo 3",
       "hecho": true
@@ -33,11 +28,6 @@
     {
       "id": 7772025629,
       "descripcion": "una mas",
-      "hecho": false
-    },
-    {
-      "id": 5019914729,
-      "descripcion": "Sprint 26",
       "hecho": false
     },
     {

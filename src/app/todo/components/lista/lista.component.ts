@@ -1,6 +1,6 @@
-import { Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Tarea } from 'src/app/shared/models/tarea.model';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
@@ -8,6 +8,7 @@ import { Tarea } from 'src/app/shared/models/tarea.model';
 })
 export class ListaComponent implements OnInit, DoCheck {
   @Input() tareas: Tarea[] = [];
+  @Output() eliminarTarea = new EventEmitter();
   tareasTerminadas = 0;
   constructor() { }
 
@@ -18,6 +19,23 @@ export class ListaComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     this.tareasTerminadas = this.tareas === null ? 0 :  this.tareas?.filter( t => t.hecho).length;
+  }
+
+  eliminar(tareaId: number) {
+    console.log({tareaId});
+    Swal.fire({
+      icon: 'warning',
+      title: '¿Estas seguro que deseas borrar la tarea ' + tareaId,
+      cancelButtonText: 'No borrar',
+      confirmButtonText: 'Si, borrar',
+      showConfirmButton: true,
+      showCancelButton: true
+    }).then( value => {
+      if(value.isConfirmed) {
+        this.eliminarTarea.emit(tareaId);
+      }
+    })
+    
   }
 
   

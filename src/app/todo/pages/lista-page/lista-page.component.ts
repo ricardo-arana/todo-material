@@ -25,4 +25,12 @@ export class ListaPageComponent implements OnInit {
       );
   }
 
+  eliminarTarea(tareaId: number) {
+    this.todoService.eliminarTarea(tareaId)
+    .subscribe( res => {
+      console.log( {res})
+      this.obtenerTareas();
+    })
+  }
+
 }

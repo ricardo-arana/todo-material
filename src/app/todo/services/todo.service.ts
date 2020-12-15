@@ -6,19 +6,22 @@ import { environment } from 'src/environments/environment';
 @Injectable()
 export class TodoService {
   tareas: Tarea[] = [];
+  url = environment.apiUrl + environment.endpoints.tareas;
   constructor( private http: HttpClient) { 
     console.log('servicio todo iniciado')
   }
 
   agregarTarea(tarea: Tarea) {
-    const url = environment.apiUrl + environment.endpoints.tareas;
-    return this.http.post<Tarea>(url, tarea); 
+    return this.http.post<Tarea>(this.url, tarea); 
   }
 
   obtenerTarea() {
+    return this.http.get<Tarea[]>(this.url);
+  }
 
-    const url = environment.apiUrl + environment.endpoints.tareas;
-    return this.http.get<Tarea[]>(url);
+  eliminarTarea(tareaId: number) {
+    const url = `${this.url}/${tareaId}`;
+    return this.http.delete(url);
   }
  
   generarId() {

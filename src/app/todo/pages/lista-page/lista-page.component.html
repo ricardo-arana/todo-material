@@ -3,5 +3,5 @@
 </div>
 
 <div>
-    <app-lista [tareas]="tareas"></app-lista>
+    <app-lista [tareas]="tareas" (eliminarTarea)="eliminarTarea($event)"></app-lista>
 </div>
