@@ -20,8 +20,17 @@ export class AddComponent implements OnInit {
       descripcion,
       hecho: false
     }
-    this.todoservice.agregarTarea(tarea);
-    this.update.emit();
+    this.todoservice.agregarTarea(tarea)
+    .subscribe( (res) => {
+      alert(' Se agrego la tarea con el ID ' + res.id);
+      this.update.emit();
+    } ,
+    err => {
+      alert('ocurrio un error al interntar agregar la tarea')
+    }
+    
+    );
+    
   }
 
 }

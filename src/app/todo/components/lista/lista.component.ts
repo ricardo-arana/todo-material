@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnInit } from '@angular/core';
 import { Tarea } from 'src/app/shared/models/tarea.model';
 
 @Component({
@@ -6,13 +6,29 @@ import { Tarea } from 'src/app/shared/models/tarea.model';
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css']
 })
-export class ListaComponent implements OnInit {
+export class ListaComponent implements OnInit, DoCheck {
   @Input() tareas: Tarea[] = [];
+  tareasTerminadas = 0;
   constructor() { }
+
+  
 
   ngOnInit(): void {
   }
-  seleciona(algo: any) {
-    console.log(algo)
+
+  ngDoCheck(): void {
+    this.tareasTerminadas = this.tareas === null ? 0 :  this.tareas?.filter( t => t.hecho).length;
+  }
+
+  
+  
+  seleccionar(tarea: Tarea) {
+    this.tareas.forEach( t => {
+      if( t.id === tarea.id) {
+        t.hecho = !t.hecho
+      }
+    });
+    
+    console.log(this.tareas);
   }
 }

@@ -9,7 +9,8 @@ import { TodoService } from '../../services/todo.service';
   styleUrls: ['./lista-page.component.css']
 })
 export class ListaPageComponent implements OnInit {
-  tareas = new Observable<Tarea[]>();
+  tareas$ = new Observable<Tarea[]>();
+  tareas: Tarea[] = [];
   constructor(private todoService: TodoService) {
     this.obtenerTareas();
    }
@@ -18,7 +19,10 @@ export class ListaPageComponent implements OnInit {
   }
 
   obtenerTareas() {
-    this.tareas = this.todoService.obtenerTarea()
+    this.tareas$ = this.todoService.obtenerTarea()
+    this.tareas$.subscribe( tareas => this.tareas = tareas,
+      err => alert('no se pudieron obtener las tareas')
+      );
   }
 
 }

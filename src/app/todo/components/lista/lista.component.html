@@ -1,9 +1,12 @@
 <div class="lista">
-  <mat-selection-list #items (selectionChange)="seleciona($event.option.value)">
-    <mat-list-option *ngFor="let tarea of tareas" [value]="tarea.id" [selected]="tarea.hecho">
+  <div *ngIf="tareasTerminadas === 0">
+    No hay tareas
+  </div>
+  <mat-selection-list #items>
+    <mat-list-option *ngFor="let tarea of tareas" [value]="tarea.id" (click)="seleccionar(tarea)" [selected]="tarea.hecho">
       {{ tarea.descripcion }}
     </mat-list-option>
   </mat-selection-list>
 
-  <p>Tareas completadas: {{ items.selectedOptions.selected.length }}</p>
+  <p>Tareas completadas: {{ tareasTerminadas}}</p>
 </div>

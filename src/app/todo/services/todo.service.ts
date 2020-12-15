@@ -11,14 +11,14 @@ export class TodoService {
   }
 
   agregarTarea(tarea: Tarea) {
-    this.tareas.push(tarea);
-    console.log(this.tareas);
+    const url = environment.apiUrl + environment.endpoints.tareas;
+    return this.http.post<Tarea>(url, tarea); 
   }
 
   obtenerTarea() {
 
     const url = environment.apiUrl + environment.endpoints.tareas;
-    return this.http.get<Tarea[]>(url);;
+    return this.http.get<Tarea[]>(url);
   }
  
   generarId() {
