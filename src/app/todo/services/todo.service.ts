@@ -28,4 +28,8 @@ export class TodoService {
     return parseInt((Math.random() * 10000000000).toString());
   }
 
+  actualizarTarea(tarea: Tarea) {
+    return this.http.put(`${this.url}/${tarea.id}`, tarea);
+  }
+
 }

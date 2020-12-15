@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 export class ListaComponent implements OnInit, DoCheck {
   @Input() tareas: Tarea[] = [];
   @Output() eliminarTarea = new EventEmitter();
+  @Output() actualizarTarea = new EventEmitter();
   tareasTerminadas = 0;
   constructor() { }
 
@@ -44,6 +45,7 @@ export class ListaComponent implements OnInit, DoCheck {
     this.tareas.forEach( t => {
       if( t.id === tarea.id) {
         t.hecho = !t.hecho
+        this.actualizarTarea.emit(t);
       }
     });
     

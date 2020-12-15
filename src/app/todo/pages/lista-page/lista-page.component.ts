@@ -33,4 +33,11 @@ export class ListaPageComponent implements OnInit {
     })
   }
 
+  actualizarTarea(tarea: Tarea){
+    this.todoService.actualizarTarea(tarea)
+    .subscribe( res => {
+      console.log('se actualizo la tarea');
+    })
+  }
+
 }

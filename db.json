@@ -3,7 +3,7 @@
     {
       "id": 1,
       "descripcion": "tarea de ejemplo",
-      "hecho": false
+      "hecho": true
     },
     {
       "id": 6,
@@ -13,26 +13,6 @@
     {
       "id": 8,
       "descripcion": "tarea de ejemplo 4",
-      "hecho": false
-    },
-    {
-      "id": 6548278335,
-      "descripcion": "aqui va",
-      "hecho": false
-    },
-    {
-      "id": 875841333,
-      "descripcion": "hola",
-      "hecho": false
-    },
-    {
-      "id": 7772025629,
-      "descripcion": "una mas",
-      "hecho": false
-    },
-    {
-      "id": 9600206792,
-      "descripcion": "nueva tarea",
       "hecho": false
     },
     {

@@ -8,6 +8,7 @@ import { ListaComponent } from './components/lista/lista.component';
 import {MatListModule} from '@angular/material/list';
 import { TodoService } from './services/todo.service';
 import { FormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [AddComponent, ListaPageComponent, ListaComponent],
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ],
   exports: [
     ListaPageComponent
